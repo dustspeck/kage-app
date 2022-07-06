@@ -1,12 +1,12 @@
 import React from 'react';
-import {Button, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import KageStack from './modules/navigator/KageStack';
 import HomeScreen from './HomeScreen';
-import {CommonStyles} from './styles';
+import {Colors, CommonStyles} from './styles';
 
 const HomeStack = () => {
   const Stack = createNativeStackNavigator();
@@ -33,8 +33,8 @@ const BottomNavigator = () => {
       initialRouteName={'HOME'}
       screenOptions={{
         tabBarIconStyle: {display: 'none'},
-        tabBarActiveTintColor: '#1ABC9C',
-        tabBarInactiveTintColor: '#8a8a8a77',
+        tabBarActiveTintColor: Colors.primary,
+        tabBarInactiveTintColor: Colors.inactive,
         headerShown: false,
         tabBarShowLabel: true,
         tabBarLabelPosition: 'beside-icon',
@@ -47,7 +47,7 @@ const BottomNavigator = () => {
         tabBarStyle: {
           height: 70,
           borderTopWidth: 0,
-          backgroundColor: '#FFFBFE',
+          backgroundColor: Colors.card_background,
         },
       }}>
       <Tab.Screen

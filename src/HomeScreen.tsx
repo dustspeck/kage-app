@@ -4,6 +4,9 @@ import {NavigationProp} from '@react-navigation/native';
 import {Colors, CommonStyles} from './styles';
 
 const HomeScreen = ({navigation}: {navigation: NavigationProp<any, any>}) => {
+  const handleStartPress = () => {
+    navigation.navigate('KageStack');
+  };
   return (
     <View>
       <Text style={CommonStyles.text}>PredefinedHomeStack1</Text>
@@ -15,9 +18,7 @@ const HomeScreen = ({navigation}: {navigation: NavigationProp<any, any>}) => {
         <Button
           title="Start Kage"
           color={Colors.primary}
-          onPress={() => {
-            navigation.navigate('KageStack');
-          }}
+          onPress={handleStartPress}
         />
       </View>
     </View>
