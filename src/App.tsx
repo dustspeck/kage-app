@@ -1,30 +1,35 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Button, Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import createKageStack from './hooks/createKageStack';
-import KageScreen from './modules/navigator/KageScreen';
-import KageLoader from './modules/navigator/KageLoader';
+import KageStack from './modules/navigator/KageStack';
 
 const HomeStack = () => {
   const Stack = createNativeStackNavigator();
-  const screens = createKageStack();
   return (
-    <Stack.Navigator initialRouteName="init">
+    <Stack.Navigator initialRouteName="PredefinedHomeStack1">
       <Stack.Screen
-        name="init"
+        name="PredefinedHomeStack1"
         options={{headerShown: false}}
-        component={KageLoader}
+        children={({navigation}) => (
+          <View>
+            <Text>PredefinedHomeStack1</Text>
+            <Button
+              title="Start Kage"
+              onPress={() => {
+                navigation.navigate('KageStack');
+              }}
+            />
+          </View>
+        )}
       />
-      {screens.map((screen, i) => (
-        <Stack.Screen
-          key={i}
-          name={`${screen.id}`}
-          children={() => <KageScreen />}
-        />
-      ))}
+      <Stack.Screen
+        name="KageStack"
+        options={{headerShown: false}}
+        component={KageStack}
+      />
     </Stack.Navigator>
   );
 };
@@ -34,7 +39,7 @@ const BottomNavigator = () => {
   return (
     <Tab.Navigator
       initialRouteName={'Home'}
-      screenOptions={({route}) => ({
+      screenOptions={{
         tabBarIconStyle: {display: 'none'},
         tabBarActiveTintColor: '#efefef',
         tabBarInactiveTintColor: '#8a8a8a77',
@@ -48,7 +53,7 @@ const BottomNavigator = () => {
           borderTopWidth: 0,
           backgroundColor: '#a3e3d3',
         },
-      })}>
+      }}>
       <Tab.Screen
         name="Eateries"
         children={() => (
