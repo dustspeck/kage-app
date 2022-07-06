@@ -1,3 +1,3 @@
 export interface IScreen {
-  name: string;
+  id: string;
 }
