@@ -5,6 +5,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import KageStack from './modules/navigator/KageStack';
+import HomeScreen from './HomeScreen';
+import {CommonStyles} from './styles';
 
 const HomeStack = () => {
   const Stack = createNativeStackNavigator();
@@ -13,17 +15,7 @@ const HomeStack = () => {
       <Stack.Screen
         name="PredefinedHomeStack1"
         options={{headerShown: false}}
-        children={({navigation}) => (
-          <View>
-            <Text>PredefinedHomeStack1</Text>
-            <Button
-              title="Start Kage"
-              onPress={() => {
-                navigation.navigate('KageStack');
-              }}
-            />
-          </View>
-        )}
+        component={HomeScreen}
       />
       <Stack.Screen
         name="KageStack"
@@ -38,36 +30,40 @@ const BottomNavigator = () => {
   const Tab = createBottomTabNavigator();
   return (
     <Tab.Navigator
-      initialRouteName={'Home'}
+      initialRouteName={'HOME'}
       screenOptions={{
         tabBarIconStyle: {display: 'none'},
-        tabBarActiveTintColor: '#efefef',
+        tabBarActiveTintColor: '#1ABC9C',
         tabBarInactiveTintColor: '#8a8a8a77',
         headerShown: false,
         tabBarShowLabel: true,
         tabBarLabelPosition: 'beside-icon',
-        tabBarLabelStyle: {position: 'absolute', fontSize: 14},
+        tabBarLabelStyle: {
+          position: 'absolute',
+          fontSize: 14,
+          fontWeight: '900',
+        },
         tabBarHideOnKeyboard: true,
         tabBarStyle: {
           height: 70,
           borderTopWidth: 0,
-          backgroundColor: '#a3e3d3',
+          backgroundColor: '#FFFBFE',
         },
       }}>
       <Tab.Screen
-        name="Eateries"
+        name="ORDERS"
         children={() => (
           <View>
-            <Text>Eateries</Text>
+            <Text style={CommonStyles.text}>ORDERS</Text>
           </View>
         )}
       />
-      <Tab.Screen name="Home" component={HomeStack} />
+      <Tab.Screen name="HOME" component={HomeStack} />
       <Tab.Screen
-        name="DMS"
+        name="USER"
         children={() => (
           <View>
-            <Text>DMS</Text>
+            <Text style={CommonStyles.text}>USER</Text>
           </View>
         )}
       />
@@ -86,19 +82,19 @@ const App = () => {
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name={'PredefinedScreen1'}
+          name={'PredefinedRootStack1'}
           children={() => (
             <View>
-              <Text>PredefinedScreen1</Text>
+              <Text style={CommonStyles.text}>PredefinedRootStack1</Text>
             </View>
           )}
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name={'PredefinedScreen2'}
+          name={'PredefinedRootStack2'}
           children={() => (
             <View>
-              <Text>PredefinedScreen2</Text>
+              <Text style={CommonStyles.text}>PredefinedScreen2</Text>
             </View>
           )}
           options={{headerShown: false}}

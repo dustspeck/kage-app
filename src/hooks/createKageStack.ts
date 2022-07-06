@@ -8,9 +8,10 @@ const createKageStack = ({navigation}: any) => {
   const initScreens = async () => {
     try {
       const screensData = await getScreens();
-      if (screensData) setScreens(screensData);
-      console.log('screens loaded');
-      navigation.replace('index');
+      if (screensData) {
+        setScreens(screensData);
+        navigation.replace('index');
+      }
     } catch (error) {
       console.log(error);
     }
@@ -19,6 +20,10 @@ const createKageStack = ({navigation}: any) => {
   useEffect(() => {
     initScreens();
   }, []);
+
+  useEffect(() => {
+    console.log(`# kage screens loaded: ${screens.length}`);
+  }, [screens]);
 
   return screens;
 };
