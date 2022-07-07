@@ -1,19 +1,40 @@
-import {Dimensions, Image, ImageBackground, Text, View} from 'react-native';
+import {Dimensions, ImageBackground, View} from 'react-native';
 import React, {useState} from 'react';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
+import {IImageBanner} from '../../types/ui/components';
+import {parseMargins} from '../helpers/ui';
 
 const {width} = Dimensions.get('window');
-const ImageBanner = () => {
-  const props = {
-    url: 'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner',
-    ratio: 2,
-  };
+const ImageBanner = ({
+  columns = 1,
+  ratio,
+  url,
+  backgroundColor,
+  margins,
+}: IImageBanner) => {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
+  const {isMarginsValid, marginsArr} = parseMargins(margins);
   return (
     <View>
       <ImageBackground
-        style={{width, height: width / props.ratio}}
-        source={{uri: props.url}}
+        style={[
+          {
+            width:
+              width / columns -
+              (isMarginsValid ? marginsArr[1] + marginsArr[3] : 0),
+            height: width / ratio,
+            backgroundColor: backgroundColor ? backgroundColor : 'transparent',
+          },
+          isMarginsValid
+            ? {
+                marginTop: marginsArr[0],
+                marginRight: marginsArr[1],
+                marginBottom: marginsArr[2],
+                marginLeft: marginsArr[3],
+              }
+            : {margin: 0},
+        ]}
+        source={{uri: url}}
         onLoad={() => {
           setIsLoaded(true);
         }}>
@@ -21,8 +42,8 @@ const ImageBanner = () => {
           <SkeletonPlaceholder speed={1600}>
             <SkeletonPlaceholder.Item
               zIndex={2}
-              width={width}
-              height={width / props.ratio}
+              width={width / columns}
+              height={width / ratio}
             />
           </SkeletonPlaceholder>
         )}
