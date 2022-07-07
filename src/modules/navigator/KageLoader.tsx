@@ -6,7 +6,7 @@ import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 const KageLoader = () => {
   return (
     <View style={LoaderStyles.container}>
-      <SkeletonPlaceholder>
+      <SkeletonPlaceholder speed={0}>
         <SkeletonPlaceholder.Item width={'100%'} height={'100%'} />
       </SkeletonPlaceholder>
     </View>
