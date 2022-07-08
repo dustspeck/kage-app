@@ -1,3 +1,5 @@
+import {IOnPress} from '../navigator/screen';
+
 export interface ITextPanel extends ITextPanelProps {
   text: string;
 }
@@ -7,6 +9,7 @@ export interface IImageBanner extends IImageBannerProps {
 }
 
 export interface IImageBannerProps {
+  onPress?: IOnPress;
   ratio?: number;
   columns?: number;
   margins?: string;
@@ -14,6 +17,7 @@ export interface IImageBannerProps {
 }
 
 export interface ITextPanelProps {
+  onPress?: IOnPress;
   columns?: number;
   color?: string;
   fontFamily?: string;

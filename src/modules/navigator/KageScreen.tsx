@@ -8,18 +8,20 @@ const KageScreen = () => {
   const items: {type: string; [key: string]: any}[] = [
     {
       type: 'text',
-      text: 'Kage Sample Text Banner',
+      text: 'Kage Sample Text Heading',
       color: '#3e3e3e',
       fontFamily: 'Roboto',
       fontSize: 35,
       fontWeight: 'bold',
       backgroundColor: '#e1e1e1',
       paddings: '50 10 10 20',
+      onPress: {type: 'url', props: {url: 'heading'}},
     },
     {
       type: 'image',
       ratio: 2,
       url: 'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+Hero',
+      onPress: {type: 'url', props: {url: 'hero'}},
     },
     {
       type: 'hstack',
@@ -36,7 +38,7 @@ const KageScreen = () => {
       snapToColumns: false,
       componentProps: {
         paddings: '30 10 10 10',
-        fontSize: 25,
+        fontSize: 20,
         fontWeight: 'bold',
         backgroundColor: '#e1e1e1',
       },
@@ -44,6 +46,7 @@ const KageScreen = () => {
     {
       type: 'hstack',
       componentType: 'image',
+      componentProps: {margins: '10 5 10 5'},
       columns: 2,
       ratio: 2,
       sources: [
@@ -68,6 +71,16 @@ const KageScreen = () => {
       backgroundColor: '#e1e1e1',
       paddings: '10 10 10 10',
       textAlign: 'center',
+    },
+    {
+      type: 'hstack',
+      componentType: 'image',
+      ratio: 2,
+      sources: [
+        'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+1',
+        'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+2',
+        'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+3',
+      ],
     },
     {
       type: 'image',
@@ -117,6 +130,8 @@ const KageScreen = () => {
                   ratio={item.ratio}
                   backgroundColor={item.backgroundColor}
                   margins={item.margins}
+                  columns={item.columns}
+                  onPress={item.onPress}
                 />
               );
             case 'text':
@@ -132,6 +147,7 @@ const KageScreen = () => {
                   margins={item.margins}
                   paddings={item.paddings}
                   textAlign={item.textAlign}
+                  onPress={item.onPress}
                 />
               );
             case 'hstack':

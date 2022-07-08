@@ -1,4 +1,4 @@
-import {Dimensions, ImageBackground, View} from 'react-native';
+import {Dimensions, ImageBackground, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 import {IImageBanner} from '../../types/ui/components';
@@ -11,11 +11,20 @@ const ImageBanner = ({
   url,
   backgroundColor,
   margins,
+  onPress,
 }: IImageBanner) => {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const {isMarginsValid, marginsArr} = parseMargins(margins);
   return (
-    <View>
+    <TouchableOpacity
+      activeOpacity={onPress ? 0.8 : 1}
+      onPress={
+        onPress
+          ? () => {
+              console.log(onPress);
+            }
+          : () => {}
+      }>
       <ImageBackground
         style={[
           {
@@ -48,7 +57,7 @@ const ImageBanner = ({
           </SkeletonPlaceholder>
         )}
       </ImageBackground>
-    </View>
+    </TouchableOpacity>
   );
 };
 

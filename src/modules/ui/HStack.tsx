@@ -29,6 +29,7 @@ const HStack = ({
                 ratio={componentProps?.ratio}
                 backgroundColor={componentProps?.backgroundColor}
                 margins={componentProps?.margins}
+                onPress={{type: 'url', props: {url: ''}}}
               />
             );
           case 'text':
@@ -43,6 +44,7 @@ const HStack = ({
                 margins={componentProps?.margins}
                 paddings={componentProps?.paddings}
                 columns={columns}
+                onPress={{type: 'url', props: {url: ''}}}
               />
             );
 

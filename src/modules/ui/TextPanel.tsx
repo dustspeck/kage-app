@@ -1,4 +1,4 @@
-import {View, Text, Dimensions} from 'react-native';
+import {Text, Dimensions, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {ITextPanel} from '../../types/ui/components';
 import {parseMargins, parsePaddings} from '../helpers/ui';
@@ -15,12 +15,21 @@ const TextPanel = ({
   paddings,
   columns = 1,
   textAlign = 'auto',
+  onPress,
 }: ITextPanel) => {
   const {isPaddingsValid, paddingsArr} = parsePaddings(paddings);
   const {isMarginsValid, marginsArr} = parseMargins(margins);
 
   return (
-    <View>
+    <TouchableOpacity
+      activeOpacity={onPress ? 0.8 : 1}
+      onPress={
+        onPress
+          ? () => {
+              console.log(onPress);
+            }
+          : () => {}
+      }>
       <Text
         style={[
           {
@@ -53,7 +62,7 @@ const TextPanel = ({
         ]}>
         {text}
       </Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
