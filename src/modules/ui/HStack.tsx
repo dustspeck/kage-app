@@ -1,17 +1,17 @@
-import {Dimensions, FlatList} from 'react-native';
+import {Dimensions, FlatList, View} from 'react-native';
 import React from 'react';
 import ImageBanner from './ImageBanner';
 import {IHStack} from '../../types/ui/components';
+import TextPanel from './TextPanel';
 
 const {width} = Dimensions.get('window');
 const HStack = ({
-  ratio,
   sources,
   componentType,
   columns = 1,
   snapToColumns = false,
+  componentProps,
 }: IHStack) => {
-  // TODO: add text in componentType
   return (
     <FlatList
       showsVerticalScrollIndicator={false}
@@ -19,9 +19,37 @@ const HStack = ({
       snapToInterval={snapToColumns ? width / columns : undefined}
       horizontal={true}
       data={sources}
-      renderItem={({item}) => (
-        <ImageBanner columns={columns} ratio={ratio} url={item} />
-      )}
+      renderItem={({item}) => {
+        switch (componentType) {
+          case 'image':
+            return (
+              <ImageBanner
+                columns={columns}
+                url={item}
+                ratio={componentProps?.ratio}
+                backgroundColor={componentProps?.backgroundColor}
+                margins={componentProps?.margins}
+              />
+            );
+          case 'text':
+            return (
+              <TextPanel
+                text={item}
+                color={componentProps?.color}
+                fontFamily={componentProps?.fontFamily}
+                fontSize={componentProps?.fontSize}
+                fontWeight={componentProps?.fontWeight}
+                backgroundColor={componentProps?.backgroundColor}
+                margins={componentProps?.margins}
+                paddings={componentProps?.paddings}
+                columns={columns}
+              />
+            );
+
+          default:
+            return <View />;
+        }
+      }}
     />
   );
 };

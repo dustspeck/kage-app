@@ -7,7 +7,7 @@ import {parseMargins} from '../helpers/ui';
 const {width} = Dimensions.get('window');
 const ImageBanner = ({
   columns = 1,
-  ratio,
+  ratio = 2,
   url,
   backgroundColor,
   margins,

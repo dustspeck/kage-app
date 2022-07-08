@@ -1,5 +1,20 @@
-export interface ITextPanel {
+export interface ITextPanel extends ITextPanelProps {
   text: string;
+}
+
+export interface IImageBanner extends IImageBannerProps {
+  url: string;
+}
+
+export interface IImageBannerProps {
+  ratio?: number;
+  columns?: number;
+  margins?: string;
+  backgroundColor?: string;
+}
+
+export interface ITextPanelProps {
+  columns?: number;
   color?: string;
   fontFamily?: string;
   fontSize?: number;
@@ -19,20 +34,17 @@ export interface ITextPanel {
   backgroundColor?: string;
   margins?: string;
   paddings?: string;
+  textAlign?: 'auto' | 'center' | 'left' | 'right' | 'justify' | undefined;
 }
 
-export interface IImageBanner {
-  url: string;
-  ratio: number;
-  columns?: number;
-  margins?: string;
-  backgroundColor?: string;
-}
+export interface IHStackComponentProps
+  extends ITextPanelProps,
+    IImageBannerProps {}
 
 export interface IHStack {
   componentType: 'text' | 'image';
   sources: string[];
-  ratio: number;
+  componentProps?: IHStackComponentProps;
   columns?: number;
   snapToColumns?: boolean;
 }

@@ -9,12 +9,12 @@ const KageScreen = () => {
     {
       type: 'text',
       text: 'Kage Sample Text Banner',
-      color: '#1e1e1e',
+      color: '#3e3e3e',
       fontFamily: 'Roboto',
-      fontSize: 20,
+      fontSize: 35,
       fontWeight: 'bold',
       backgroundColor: '#e1e1e1',
-      paddings: '10 10 10 10',
+      paddings: '50 10 10 20',
     },
     {
       type: 'image',
@@ -23,6 +23,27 @@ const KageScreen = () => {
     },
     {
       type: 'hstack',
+      componentType: 'text',
+      columns: 2,
+      sources: [
+        'Sample Text 1 with long text',
+        'Sample Text 2',
+        'Sample Text 3',
+        'Sample Text 4',
+        'Sample Text 5',
+        'Sample Text 6',
+      ],
+      snapToColumns: false,
+      componentProps: {
+        paddings: '30 10 10 10',
+        fontSize: 25,
+        fontWeight: 'bold',
+        backgroundColor: '#e1e1e1',
+      },
+    },
+    {
+      type: 'hstack',
+      componentType: 'image',
       columns: 2,
       ratio: 2,
       sources: [
@@ -35,7 +56,6 @@ const KageScreen = () => {
         'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+7',
         'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+8',
       ],
-      componentType: 'image',
       snapToColumns: true,
     },
     {
@@ -47,6 +67,7 @@ const KageScreen = () => {
       fontWeight: 'bold',
       backgroundColor: '#e1e1e1',
       paddings: '10 10 10 10',
+      textAlign: 'center',
     },
     {
       type: 'image',
@@ -102,6 +123,7 @@ const KageScreen = () => {
               return (
                 <TextPanel
                   text={item.text}
+                  columns={item.columns}
                   color={item.color}
                   fontFamily={item.fontFamily}
                   fontSize={item.fontSize}
@@ -109,16 +131,17 @@ const KageScreen = () => {
                   backgroundColor={item.backgroundColor}
                   margins={item.margins}
                   paddings={item.paddings}
+                  textAlign={item.textAlign}
                 />
               );
             case 'hstack':
               return (
                 <HStack
-                  ratio={item.ratio}
                   sources={item.sources}
                   componentType={item.componentType}
                   columns={item.columns}
                   snapToColumns={item.snapToColumns}
+                  componentProps={item.componentProps}
                 />
               );
             default:
