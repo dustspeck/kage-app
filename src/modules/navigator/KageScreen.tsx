@@ -7,6 +7,16 @@ import TextPanel from '../ui/TextPanel';
 const KageScreen = () => {
   const items: {type: string; [key: string]: any}[] = [
     {
+      type: 'text',
+      text: 'Kage Sample Text Banner',
+      color: '#1e1e1e',
+      fontFamily: 'Roboto',
+      fontSize: 20,
+      fontWeight: 'bold',
+      backgroundColor: '#e1e1e1',
+      paddings: '10 10 10 10',
+    },
+    {
       type: 'image',
       ratio: 2,
       url: 'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+Hero',
@@ -20,8 +30,13 @@ const KageScreen = () => {
         'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+2',
         'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+3',
         'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+4',
+        'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+5',
+        'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+6',
+        'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+7',
+        'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+8',
       ],
       componentType: 'image',
+      snapToColumns: true,
     },
     {
       type: 'text',
@@ -103,6 +118,7 @@ const KageScreen = () => {
                   sources={item.sources}
                   componentType={item.componentType}
                   columns={item.columns}
+                  snapToColumns={item.snapToColumns}
                 />
               );
             default:

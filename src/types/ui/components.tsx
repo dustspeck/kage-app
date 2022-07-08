@@ -34,4 +34,5 @@ export interface IHStack {
   sources: string[];
   ratio: number;
   columns?: number;
+  snapToColumns?: boolean;
 }
