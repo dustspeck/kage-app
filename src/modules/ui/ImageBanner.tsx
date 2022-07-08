@@ -2,7 +2,7 @@ import {Dimensions, ImageBackground, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 import {IImageBanner} from '../../types/ui/components';
-import {parseMargins} from '../helpers/ui';
+import {parseMargins} from '../../helpers/ui';
 
 const {width} = Dimensions.get('window');
 const ImageBanner = ({

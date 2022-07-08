@@ -1,7 +1,7 @@
 import {Text, Dimensions, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {ITextPanel} from '../../types/ui/components';
-import {parseMargins, parsePaddings} from '../helpers/ui';
+import {parseMargins, parsePaddings} from '../../helpers/ui';
 
 const {fontScale, width} = Dimensions.get('window');
 const TextPanel = ({
