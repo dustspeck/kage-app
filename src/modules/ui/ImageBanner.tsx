@@ -35,7 +35,9 @@ const ImageBanner = ({
             width:
               width / columns -
               (isMarginsValid ? marginsArr[1] + marginsArr[3] : 0),
-            height: width / ratio,
+            height:
+              width / columns / ratio -
+              (isMarginsValid ? marginsArr[1] + marginsArr[3] : 0),
             backgroundColor: backgroundColor ? backgroundColor : 'transparent',
             borderRadius: borderRadius ? borderRadius : 0,
             overflow: 'hidden',

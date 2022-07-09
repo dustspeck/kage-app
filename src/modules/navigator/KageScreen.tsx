@@ -77,8 +77,8 @@ const KageScreen = () => {
     {
       type: 'hstack',
       componentType: 'image',
-      componentProps: {margins: '10 5 10 5', ratio: 2},
-      columns: 2,
+      componentProps: {margins: '10 5 10 5', ratio: 1},
+      columns: 2.5,
       sources: [
         {
           payload:
@@ -139,6 +139,45 @@ const KageScreen = () => {
         type: 'navigation',
         props: {to: 'PredefinedRootStack2', method: 'replace'},
       },
+    },
+    {
+      type: 'hstack',
+      componentType: 'image',
+      componentProps: {margins: '10 5 0 5', ratio: 1},
+      columns: 4.5,
+      sources: [
+        {
+          payload: 'https://via.placeholder.com/728x364.png?text=1',
+        },
+        {
+          payload: 'https://via.placeholder.com/728x364.png?text=2',
+        },
+        {
+          payload: 'https://via.placeholder.com/728x364.png?text=3',
+        },
+        {
+          payload: 'https://via.placeholder.com/728x364.png?text=4',
+        },
+        {
+          payload: 'https://via.placeholder.com/728x364.png?text=5',
+        },
+        {
+          payload: 'https://via.placeholder.com/728x364.png?text=6',
+        },
+        {
+          payload: 'https://via.placeholder.com/728x364.png?text=7',
+        },
+        {
+          payload: 'https://via.placeholder.com/728x364.png?text=8',
+        },
+        {
+          payload: 'https://via.placeholder.com/728x364.png?text=9',
+        },
+        {
+          payload: 'https://via.placeholder.com/728x364.png?text=10',
+        },
+      ],
+      snapToColumns: true,
     },
     {
       type: 'hstack',
