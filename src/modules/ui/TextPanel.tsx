@@ -2,6 +2,8 @@ import {Text, Dimensions, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {ITextPanel} from '../../types/ui/components';
 import {parseMargins, parsePaddings} from '../../helpers/ui';
+import {handleNavigation} from '../../helpers/navigator';
+import {useNavigation} from '@react-navigation/native';
 
 const {fontScale, width} = Dimensions.get('window');
 const TextPanel = ({
@@ -19,6 +21,7 @@ const TextPanel = ({
 }: ITextPanel) => {
   const {isPaddingsValid, paddingsArr} = parsePaddings(paddings);
   const {isMarginsValid, marginsArr} = parseMargins(margins);
+  const navigation = useNavigation();
 
   return (
     <TouchableOpacity
@@ -26,7 +29,7 @@ const TextPanel = ({
       onPress={
         onPress
           ? () => {
-              console.log(onPress);
+              handleNavigation({onPress, navigation});
             }
           : () => {}
       }>

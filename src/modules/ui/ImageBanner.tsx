@@ -3,6 +3,8 @@ import React, {useState} from 'react';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 import {IImageBanner} from '../../types/ui/components';
 import {parseMargins} from '../../helpers/ui';
+import {handleNavigation} from '../../helpers/navigator';
+import {useNavigation} from '@react-navigation/native';
 
 const {width} = Dimensions.get('window');
 const ImageBanner = ({
@@ -15,13 +17,14 @@ const ImageBanner = ({
 }: IImageBanner) => {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const {isMarginsValid, marginsArr} = parseMargins(margins);
+  const navigation = useNavigation();
   return (
     <TouchableOpacity
       activeOpacity={onPress ? 0.8 : 1}
       onPress={
         onPress
           ? () => {
-              console.log(onPress);
+              handleNavigation({onPress, navigation});
             }
           : () => {}
       }>

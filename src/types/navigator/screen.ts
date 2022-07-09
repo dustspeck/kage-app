@@ -3,15 +3,16 @@ export interface IScreen {
 }
 
 export interface IURL {
-  url: string;
+  url?: string;
 }
 export interface INavigation {
-  to: string;
-  method: 'push' | 'navigate';
+  to?: string;
+  method?: 'push' | 'navigate' | 'replace';
   props?: object;
 }
 
+export interface IOnPressProps extends IURL, INavigation {}
 export interface IOnPress {
   type: 'navigation' | 'url';
-  props: INavigation | IURL;
+  props: IOnPressProps;
 }

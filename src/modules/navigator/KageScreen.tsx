@@ -15,13 +15,16 @@ const KageScreen = () => {
       fontWeight: 'bold',
       backgroundColor: '#e1e1e1',
       paddings: '50 10 10 20',
-      onPress: {type: 'url', props: {url: 'heading'}},
+      onPress: {type: 'url', props: {url: 'https://google.com'}},
     },
     {
       type: 'image',
       ratio: 2,
       url: 'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+Hero',
-      onPress: {type: 'url', props: {url: 'hero'}},
+      onPress: {
+        type: 'navigation',
+        props: {to: 'PredefinedRootStack1', method: 'navigate'},
+      },
     },
     {
       type: 'hstack',
@@ -71,6 +74,10 @@ const KageScreen = () => {
       backgroundColor: '#e1e1e1',
       paddings: '10 10 10 10',
       textAlign: 'center',
+      onPress: {
+        type: 'navigation',
+        props: {to: 'PredefinedRootStack2', method: 'replace'},
+      },
     },
     {
       type: 'hstack',
