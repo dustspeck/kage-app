@@ -82,23 +82,26 @@ const KageScreen = () => {
         {
           payload:
             'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+1',
-          onPress: {type: 'url', props: {url: 'https://google.com'}},
+          onPress: {
+            type: 'navigation',
+            props: {to: 'screen1', method: 'navigate'},
+          },
         },
         {
           payload:
             'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+2',
 
           onPress: {
-            type: 'navigation',
-            props: {to: 'PredefinedRootStack1', method: 'navigate'},
+            type: 'url',
+            props: {url: 'http://google.com'},
           },
         },
         {
           payload:
             'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+3',
           onPress: {
-            type: 'navigation',
-            props: {to: 'PredefinedRootStack2', method: 'navigate'},
+            type: 'url',
+            props: {url: 'tel:919999999999'},
           },
         },
         {
@@ -106,8 +109,8 @@ const KageScreen = () => {
             'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+4',
 
           onPress: {
-            type: 'navigation',
-            props: {to: 'USER', method: 'navigate'},
+            type: 'url',
+            props: {url: 'mailto:android@google.com'},
           },
         },
         {
