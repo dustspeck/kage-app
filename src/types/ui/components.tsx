@@ -14,6 +14,7 @@ export interface IImageBannerProps {
   columns?: number;
   margins?: string;
   backgroundColor?: string;
+  borderRadius?: number;
 }
 
 export interface ITextPanelProps {
@@ -38,6 +39,7 @@ export interface ITextPanelProps {
   backgroundColor?: string;
   margins?: string;
   paddings?: string;
+  borderRadius?: number;
   textAlign?: 'auto' | 'center' | 'left' | 'right' | 'justify' | undefined;
 }
 

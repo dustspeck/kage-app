@@ -15,6 +15,7 @@ const TextPanel = ({
   fontWeight,
   margins,
   paddings,
+  borderRadius,
   columns = 1,
   textAlign = 'auto',
   onPress,
@@ -45,6 +46,7 @@ const TextPanel = ({
             fontFamily: fontFamily ? fontFamily : 'Roboto',
             backgroundColor: backgroundColor ? backgroundColor : 'transparent',
             fontWeight: fontWeight ? fontWeight : 'normal',
+            borderRadius: borderRadius ? borderRadius : 0,
           },
           isPaddingsValid
             ? {

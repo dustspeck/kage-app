@@ -13,6 +13,7 @@ const ImageBanner = ({
   url,
   backgroundColor,
   margins,
+  borderRadius,
   onPress,
 }: IImageBanner) => {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
@@ -36,6 +37,8 @@ const ImageBanner = ({
               (isMarginsValid ? marginsArr[1] + marginsArr[3] : 0),
             height: width / ratio,
             backgroundColor: backgroundColor ? backgroundColor : 'transparent',
+            borderRadius: borderRadius ? borderRadius : 0,
+            overflow: 'hidden',
           },
           isMarginsValid
             ? {

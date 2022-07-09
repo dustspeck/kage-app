@@ -29,6 +29,7 @@ const HStack = ({
                 ratio={componentProps?.ratio}
                 backgroundColor={componentProps?.backgroundColor}
                 margins={componentProps?.margins}
+                borderRadius={componentProps?.borderRadius}
                 onPress={item.onPress}
               />
             );
@@ -43,6 +44,7 @@ const HStack = ({
                 backgroundColor={componentProps?.backgroundColor}
                 margins={componentProps?.margins}
                 paddings={componentProps?.paddings}
+                borderRadius={componentProps?.borderRadius}
                 columns={columns}
                 onPress={item.onPress}
               />

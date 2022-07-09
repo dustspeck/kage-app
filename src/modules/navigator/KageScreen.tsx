@@ -70,6 +70,8 @@ const KageScreen = () => {
         fontSize: 18,
         fontWeight: 'bold',
         backgroundColor: '#e1e1e1',
+        margins: '10 10 0 10',
+        borderRadius: 10,
       },
     },
     {
@@ -157,6 +159,7 @@ const KageScreen = () => {
             'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+3',
         },
       ],
+      componentProps: {margins: '10 10 10 10', borderRadius: 30},
     },
     {
       type: 'image',
@@ -206,6 +209,7 @@ const KageScreen = () => {
                   ratio={item.ratio}
                   backgroundColor={item.backgroundColor}
                   margins={item.margins}
+                  borderRadius={item.borderRadius}
                   columns={item.columns}
                   onPress={item.onPress}
                 />
@@ -222,6 +226,7 @@ const KageScreen = () => {
                   backgroundColor={item.backgroundColor}
                   margins={item.margins}
                   paddings={item.paddings}
+                  borderRadius={item.borderRadius}
                   textAlign={item.textAlign}
                   onPress={item.onPress}
                 />
