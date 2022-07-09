@@ -31,17 +31,43 @@ const KageScreen = () => {
       componentType: 'text',
       columns: 2,
       sources: [
-        'Sample Text 1 with long text',
-        'Sample Text 2',
-        'Sample Text 3',
-        'Sample Text 4',
-        'Sample Text 5',
-        'Sample Text 6',
+        {
+          payload: 'Sample Text 1 redirect to Google',
+          onPress: {type: 'url', props: {url: 'https://google.com'}},
+        },
+        {
+          payload: 'Sample Text 2 navigate to PRS1',
+          onPress: {
+            type: 'navigation',
+            props: {to: 'PredefinedRootStack1', method: 'navigate'},
+          },
+        },
+        {
+          payload: 'Sample Text 3 navigate to PRS2',
+          onPress: {
+            type: 'navigation',
+            props: {to: 'PredefinedRootStack2', method: 'navigate'},
+          },
+        },
+        {
+          payload: 'Sample Text 4 navigate to USER',
+          onPress: {
+            type: 'navigation',
+            props: {to: 'USER', method: 'navigate'},
+          },
+        },
+        {
+          payload: 'Sample Text 5 navigate to ORDERS',
+          onPress: {
+            type: 'navigation',
+            props: {to: 'ORDERS', method: 'navigate'},
+          },
+        },
       ],
       snapToColumns: false,
       componentProps: {
         paddings: '30 10 10 10',
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: 'bold',
         backgroundColor: '#e1e1e1',
       },
@@ -53,14 +79,45 @@ const KageScreen = () => {
       columns: 2,
       ratio: 2,
       sources: [
-        'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+1',
-        'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+2',
-        'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+3',
-        'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+4',
-        'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+5',
-        'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+6',
-        'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+7',
-        'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+8',
+        {
+          payload:
+            'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+1',
+          onPress: {type: 'url', props: {url: 'https://google.com'}},
+        },
+        {
+          payload:
+            'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+2',
+
+          onPress: {
+            type: 'navigation',
+            props: {to: 'PredefinedRootStack1', method: 'navigate'},
+          },
+        },
+        {
+          payload:
+            'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+3',
+          onPress: {
+            type: 'navigation',
+            props: {to: 'PredefinedRootStack2', method: 'navigate'},
+          },
+        },
+        {
+          payload:
+            'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+4',
+
+          onPress: {
+            type: 'navigation',
+            props: {to: 'USER', method: 'navigate'},
+          },
+        },
+        {
+          payload:
+            'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+5',
+          onPress: {
+            type: 'navigation',
+            props: {to: 'ORDERS', method: 'navigate'},
+          },
+        },
       ],
       snapToColumns: true,
     },
@@ -84,9 +141,18 @@ const KageScreen = () => {
       componentType: 'image',
       ratio: 2,
       sources: [
-        'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+1',
-        'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+2',
-        'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+3',
+        {
+          payload:
+            'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+1',
+        },
+        {
+          payload:
+            'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+2',
+        },
+        {
+          payload:
+            'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+3',
+        },
       ],
     },
     {

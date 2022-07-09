@@ -45,9 +45,13 @@ export interface IHStackComponentProps
   extends ITextPanelProps,
     IImageBannerProps {}
 
+export interface IHStackSources {
+  payload: string;
+  onPress: IOnPress;
+}
 export interface IHStack {
   componentType: 'text' | 'image';
-  sources: string[];
+  sources: IHStackSources[];
   componentProps?: IHStackComponentProps;
   columns?: number;
   snapToColumns?: boolean;

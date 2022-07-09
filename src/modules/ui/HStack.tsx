@@ -25,17 +25,17 @@ const HStack = ({
             return (
               <ImageBanner
                 columns={columns}
-                url={item}
+                url={item.payload}
                 ratio={componentProps?.ratio}
                 backgroundColor={componentProps?.backgroundColor}
                 margins={componentProps?.margins}
-                onPress={{type: 'url', props: {url: ''}}}
+                onPress={item.onPress}
               />
             );
           case 'text':
             return (
               <TextPanel
-                text={item}
+                text={item.payload}
                 color={componentProps?.color}
                 fontFamily={componentProps?.fontFamily}
                 fontSize={componentProps?.fontSize}
@@ -44,7 +44,7 @@ const HStack = ({
                 margins={componentProps?.margins}
                 paddings={componentProps?.paddings}
                 columns={columns}
-                onPress={{type: 'url', props: {url: ''}}}
+                onPress={item.onPress}
               />
             );
 
