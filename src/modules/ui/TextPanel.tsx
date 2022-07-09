@@ -38,7 +38,9 @@ const TextPanel = ({
         style={[
           {
             fontSize: fontScale * (fontSize ? fontSize : 20),
-            width: width / columns,
+            width:
+              width / columns -
+              (isMarginsValid ? marginsArr[1] + marginsArr[3] : 0),
             flexGrow: 1,
             textAlignVertical: 'center',
             textAlign,

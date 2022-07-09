@@ -70,16 +70,15 @@ const KageScreen = () => {
         fontSize: 18,
         fontWeight: 'bold',
         backgroundColor: '#e1e1e1',
-        margins: '10 10 0 10',
+        margins: '10 5 0 5',
         borderRadius: 10,
       },
     },
     {
       type: 'hstack',
       componentType: 'image',
-      componentProps: {margins: '10 5 10 5'},
+      componentProps: {margins: '10 5 10 5', ratio: 2},
       columns: 2,
-      ratio: 2,
       sources: [
         {
           payload:
@@ -159,7 +158,7 @@ const KageScreen = () => {
             'https://via.placeholder.com/728x364.png?text=Kage+Sample+Image+Banner+3',
         },
       ],
-      componentProps: {margins: '10 10 10 10', borderRadius: 30},
+      componentProps: {margins: '10 10 10 10', borderRadius: 15, ratio: 3},
     },
     {
       type: 'image',
