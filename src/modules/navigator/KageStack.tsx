@@ -19,7 +19,7 @@ const KageStack = ({navigation}: any) => {
           key={i}
           options={{headerShown: false}}
           name={`${screen.id}`}
-          children={() => <KageScreen />}
+          children={() => <KageScreen data={screen.data} />}
         />
       ))}
     </Stack.Navigator>

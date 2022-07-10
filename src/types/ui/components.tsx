@@ -49,7 +49,7 @@ export interface IHStackComponentProps
 
 export interface IHStackSources {
   payload: string;
-  onPress: IOnPress;
+  onPress?: IOnPress;
 }
 export interface IHStack {
   componentType: 'text' | 'image';

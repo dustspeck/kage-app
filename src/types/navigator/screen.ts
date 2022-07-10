@@ -1,5 +1,13 @@
+import {IHStack, IImageBanner, ITextPanel} from '../ui/components';
+
+export interface IScreenData {
+  type: 'text' | 'image' | 'hstack';
+  payload: ITextPanel | IImageBanner | IHStack;
+}
+
 export interface IScreen {
   id: string;
+  data: IScreenData[];
 }
 
 export interface IURL {
