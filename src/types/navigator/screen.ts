@@ -1,13 +1,13 @@
 import {IHStack, IImageBanner, ITextPanel} from '../ui/components';
 
-export interface IScreenData {
+export interface IComponentData {
   type: 'text' | 'image' | 'hstack';
   payload: ITextPanel | IImageBanner | IHStack;
 }
 
 export interface IScreen {
-  id: string;
-  data: IScreenData[];
+  screen_id: string;
+  data: IComponentData[];
 }
 
 export interface IURL {

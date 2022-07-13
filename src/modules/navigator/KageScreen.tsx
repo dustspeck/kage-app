@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, FlatList} from 'react-native';
-import {IScreenData} from '../../types/navigator/screen';
+import {IComponentData} from '../../types/navigator/screen';
 import {IHStack, IImageBanner, ITextPanel} from '../../types/ui/components';
 import HStack from '../ui/HStack';
 import ImageBanner from '../ui/ImageBanner';
 import TextPanel from '../ui/TextPanel';
 
-const KageScreen = ({data}: {data: IScreenData[]}) => {
+const KageScreen = ({data, id}: {data: IComponentData[]; id: string}) => {
   return (
     <View>
       <FlatList
