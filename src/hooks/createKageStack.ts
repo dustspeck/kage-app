@@ -1,13 +1,20 @@
 import {useState, useEffect} from 'react';
-import {IScreen, IComponentData} from '../types/navigator/screen';
+import {IScreen} from '../types/navigator/screen';
 import {getScreens} from '../utils/utils';
 
-const createKageStack = ({navigation}: any) => {
+var public_key: string | null = null;
+
+export const setKageConfig = (key: string) => {
+  public_key = key;
+};
+
+export const createKageStack = ({navigation}: any) => {
   const [screens, setScreens] = useState<IScreen[]>([]);
 
   const initScreens = async () => {
     try {
-      const {screens: fetchedScreens} = await getScreens({app_id: 'app1'});
+      if (!public_key) throw 'Public key is required.';
+      const {screens: fetchedScreens} = await getScreens({public_key});
       if (fetchedScreens) {
         setScreens([...fetchedScreens]);
       } else {
@@ -23,8 +30,10 @@ const createKageStack = ({navigation}: any) => {
   }, []);
 
   useEffect(() => {
-    console.log(`# kage screens loaded: ${screens.length}`);
-    if (screens.length > 0) navigation.replace('index');
+    if (public_key !== null) {
+      console.log(`# kage screens loaded: ${screens.length}`);
+      if (screens.length > 0) navigation.replace('index');
+    }
   }, [screens]);
 
   return screens;

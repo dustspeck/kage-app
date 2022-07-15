@@ -4,12 +4,14 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import KageStack from './modules/navigator/KageStack';
 import HomeScreen from './HomeScreen';
 import {Colors, CommonStyles} from './styles';
 
+import {setKageConfig, KageStack} from '.';
+
 const HomeStack = () => {
   const Stack = createNativeStackNavigator();
+  setKageConfig('neBYGmE0RTxwFdgoWLbfS3Dcah0H6LYI');
   return (
     <Stack.Navigator initialRouteName="PredefinedHomeStack1">
       <Stack.Screen
